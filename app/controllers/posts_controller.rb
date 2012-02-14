@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
-
+	@my_var = "Oh Yeah!!"
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @posts }
@@ -25,7 +25,7 @@ class PostsController < ApplicationController
   # GET /posts/new.json
   def new
     @post = Post.new
-
+	@categories = Category.all.collect {|t|[ t.title, t.id]}
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @post }

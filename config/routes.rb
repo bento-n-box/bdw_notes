@@ -1,4 +1,6 @@
 	BdwNotes::Application.routes.draw do
+  resources :courses
+
   resources :posts do
   resources :comments
 end
