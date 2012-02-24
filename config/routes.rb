@@ -1,4 +1,4 @@
-	BdwNotes::Application.routes.draw do
+BdwNotes::Application.routes.draw do
   resources :categories
 
   resources :courses

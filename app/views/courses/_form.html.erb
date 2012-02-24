@@ -1,0 +1,46 @@
+<div id="wrapper"><%= form_for(@course) do |f| %>
+	  <% if @course.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved:</h2>
+	
+	      <ul>
+	      <% @course.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+	
+	  <div class="field">
+	    <%= f.label :title %><br />
+	    <%= f.text_field :title %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :description %><br />
+	    <%= f.text_area :description %>
+	  </div>
+	
+	  <div class="field">
+	    <%= f.label :seats %><br />
+	    <%= f.number_field :seats %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :starts_at %><br />
+	    <%= f.datetime_select :starts_at %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :ends_at %><br />
+	    <%= f.datetime_select :ends_at %>
+	  </div>
+	   <div class="field">
+	    <%= f.label :category %><br />
+	    <%= select(:course, :category_id, @category, {:include_blank => true}) %> # selector, column name, parameter
+	  </div>
+	  <div class="actions">
+	    <%= f.submit %>
+	  </div>
+	  
+	  
+	  
+	  
+	<% end %></div>

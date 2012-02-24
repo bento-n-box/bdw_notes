@@ -1,0 +1,35 @@
+<div id="wrapper"><h1>Listing courses</h1>
+	
+	<table>
+	  <tr>
+	    <th>Title</th>
+	    <th>Description</th>
+	  
+	    <th>Seats</th>
+	    <th>Starts at</th>
+	    <th>Ends at</th>
+	    <th>Category</th>
+	    <th>Options</th>
+	    <th></th>
+	  </tr>
+	
+	<% @courses.each do |course| %>
+	  <tr>
+	    <td><%= course.title %></td>
+	    <td><%= course.description %></td>
+	    <td><%= course.seats %></td>
+	   
+	   
+	     <td><%=course.starts_at %></td>
+	    <td><%= course.ends_at %></td>
+	     <td><%= course.category.name %></td>
+	    <td><%= link_to 'Show', course %></td>
+	    <td><%= link_to 'Edit', edit_course_path(course) %></td>
+	    <td><%= link_to 'Destroy', course, confirm: 'Are you sure?', method: :delete %></td>
+	  </tr>
+	<% end %>
+	</table>
+	
+	<br />
+	
+	<%= link_to 'New Course', new_course_path %></div>
